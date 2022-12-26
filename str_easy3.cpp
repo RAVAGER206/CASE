@@ -1,6 +1,3 @@
-#include<iostream>
-using namespace std;
-
 
 int main (){
 long a, b, nch, l, ad, i, nstr, obc;
