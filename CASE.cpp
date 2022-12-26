@@ -1,46 +1,60 @@
 #include <iostream>
 #include <string>
-#include "str_easy.h"
 using namespace std;
 
-string itc_hello_str(string name){ // 1
-return ("Hello, " + name);
-} // end
-
-
-long long itc_len(string str){ // 2
-int s;
-for (int i = 0; str[i] != '\0'; i++)
-s = s + 1;
-return s;
-} // end
-
-
-void itc_print_copy_str(string str, int a){ // 3
-cout << str[a];
-} // end
-
-
-void itc_first_end_three(string str){ // 4
-string l, m;
-long long s, f, i;
-s = itc_len(str);
-if (s > 5){
-for (i = 0; str[i] != str[3]; i++)
-cout << str[i] << " ";
-for (f = s - 3; str[f] != '\0'; f++)
-cout << str[f] << " ";
+int main (){
+long a, b, nch, l, ad, i, nstr, obc;
+cin >> a >> b;
+nch = 0;
+l = 1;
+obc = 0;
+ad = itc_bin_num(a);
+if (a >= 0){
+for (i = 0; i < b; i++)
+{                              // v1    
+  
+nch = nch * 10 + ad % 10;
+ad = ad / 10;
+if (nch == 0)
+l = l * 10;
+}                             // v1.1
+  
+nstr = perevorot(nch)*l;
+for (i = 0; i < b - itc_len_num(nstr); i++)
+cout << "0";
+cout <<  nstr;
+}                             // v1.2
+  
+else{                                   
+b--;
+for (i = 0; i < b; i++){
+nch = nch * 10 + ad % 10;
+ad = ad / 10;
+if (nch == 0)
+l = l * 10;
+}                          // v1.3
+  
+nstr = perevorot(nch)*l;
+cout << "pryamoy code: " << 1;
+for (i = 0; i < b - itc_len_num(nstr); i++)
+cout << "0";
+cout <<  nstr << endl << "reverse code: 1";
+l = 0;                                          
+for (i = 0; i < itc_len_num(nstr); i++){
+if (nstr % 10 == 0)
+obc = obc * 10 + 1;
+else{
+obc = obc * 10;
+if (obc == 0)
+l = l * 10;
+}                       // pere v2
+  
+nstr = nstr / 10;
 }
-else
-for (i = 0; i < s; i++)
-cout << str[0];
-} // end
-
-
-int itc_count_char_in_str(char ch, string str){ // 5
-int a;
-for (int i = 0; str[i] != '\0'; i++)
-if (ch == str[i])
-a = a + 1;
-return a;
+obc = perevorot(obc*l);
+for (i = 0; i < b - itc_len_num(obc); i++)
+cout << "1";
+cout <<  obc;
+}
+return 0;
 } // end
