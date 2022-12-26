@@ -8,17 +8,20 @@ obc = 0;
 ad = itc_bin_num(a);
 if (a >= 0){
 for (i = 0; i < b; i++)
-{                              // v1         
+{                              // v1    
+  
 nch = nch * 10 + ad % 10;
 ad = ad / 10;
 if (nch == 0)
 l = l * 10;
 }                             // v1.1
+  
 nstr = perevorot(nch)*l;
 for (i = 0; i < b - itc_len_num(nstr); i++)
 cout << "0";
 cout <<  nstr;
 }                             // v1.2
+  
 else{                                   
 b--;
 for (i = 0; i < b; i++){
@@ -27,6 +30,7 @@ ad = ad / 10;
 if (nch == 0)
 l = l * 10;
 }                          // v1.3
+  
 nstr = perevorot(nch)*l;
 cout << "pryamoy code: " << 1;
 for (i = 0; i < b - itc_len_num(nstr); i++)
@@ -41,6 +45,7 @@ obc = obc * 10;
 if (obc == 0)
 l = l * 10;
 }                       // pere v2
+  
 nstr = nstr / 10;
 }
 obc = perevorot(obc*l);
